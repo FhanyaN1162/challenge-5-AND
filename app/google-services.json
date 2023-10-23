@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "683714101506",
+    "project_id": "challenge5fn-9174d",
+    "storage_bucket": "challenge5fn-9174d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683714101506:android:0a95a13160604a65bd821b",
+        "android_client_info": {
+          "package_name": "com.example.challenge5fn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDstUYN1a5bKnBnH-4Vwlmu2V5jdXl8Rp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
