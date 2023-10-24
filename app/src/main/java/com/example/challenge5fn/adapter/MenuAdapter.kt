@@ -3,7 +3,7 @@ package com.example.challenge5fn.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.challenge5fn.databinding.MenuItemBinding
 import com.example.challenge5fn.model.ListMenuData
 
@@ -22,10 +22,10 @@ class MenuAdapter(
 
         fun bind(menuItem: ListMenuData) {
             // Isi komponen-komponen tampilan dengan data dari objek MenuItem
-            binding.imgFood.load(menuItem.imageUrl){
-                crossfade(true)
-            }
 
+            Glide.with(itemView.context)
+                .load(menuItem.imageUrl)
+                .into(binding.imgFood)
 
             binding.txtFoodName.text = menuItem.nama
             binding.txtFoodPrice.text = menuItem.hargaFormat

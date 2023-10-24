@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.challenge5fn.databinding.ActivityDetailsBinding
 import com.example.challenge5fn.items.CartItem
 import com.example.challenge5fn.viewmodel.CartViewModel
@@ -113,9 +113,9 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun updateUI(name: String?, price: String?, description: String?, imageRes: String, restaurantAddress: String?) {
         binding.apply {
-            imgFood.load(imageRes){
-                crossfade(true)
-            }
+            Glide.with(this@DetailsActivity)
+                .load(imageRes)
+                .into(imgFood)
             txtFoodName.text = name
             txtFoodPrice.text = "Rp. $price"
             txtFoodDescription.text = description

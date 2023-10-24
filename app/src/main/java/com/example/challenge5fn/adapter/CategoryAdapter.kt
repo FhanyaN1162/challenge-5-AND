@@ -3,7 +3,7 @@ package com.example.challenge5fn.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.challenge5fn.databinding.CategoryItemBinding
 import com.example.challenge5fn.model.CategoryData
 
@@ -22,9 +22,9 @@ class CategoryAdapter(
 
         fun bind(categoryItem: CategoryData) {
             // Isi komponen-komponen tampilan dengan data dari objek Item
-            binding.ivCategoryIcon.load(categoryItem.imageUrl){
-                crossfade(true)
-            }
+                Glide.with(itemView.context)
+                    .load(categoryItem.imageUrl)
+                    .into(binding.ivCategoryIcon)
 
             binding.tvCategoryName.text = categoryItem.nama
 

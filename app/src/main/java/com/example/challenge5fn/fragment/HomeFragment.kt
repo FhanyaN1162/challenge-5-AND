@@ -13,7 +13,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.example.challenge5fn.R
 import com.example.challenge5fn.adapter.CategoryAdapter
 import com.example.challenge5fn.adapter.MenuAdapter
@@ -40,9 +39,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.imgBanner.load(R.drawable.banner1){
-            crossfade(true)
-        }
         sharedPrefs = requireActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
         // Inisialisasi LayoutManager untuk Grid dan Linear
@@ -114,7 +110,7 @@ class HomeFragment : Fragment() {
             bundle.putInt("price", selectedItem.harga!!)
             bundle.putString("description", selectedItem.detail)
             bundle.putString("imageRes", selectedItem.imageUrl)
-            bundle.putString("restaurantAddress", selectedItem.alamatResto)
+            bundle.putString("restaurantAddress", "Alamat Restaurant")
             bundle.putString("googleMapsUrl", selectedItem.alamatResto)
 
             val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)

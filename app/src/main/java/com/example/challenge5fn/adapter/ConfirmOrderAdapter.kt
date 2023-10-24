@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.challenge5fn.databinding.OrderItemBinding
 import com.example.challenge5fn.items.CartItem
 
@@ -16,9 +16,9 @@ class ConfirmOrderAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(cartItem: CartItem) {
-            binding.imgCartItem.load(cartItem.imageResourceId){
-                crossfade(true)
-            }
+            Glide.with(itemView.context)
+                .load(cartItem.imageResourceId)
+                .into(binding.imgCartItem)
             binding.txtCartItemName.text = cartItem.foodName
             binding.txtCartItemPrice.text = "Rp. ${cartItem.totalPrice}"
             binding.txtItemQuantity.text = cartItem.quantity.toString()

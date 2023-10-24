@@ -5,11 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.example.challenge5fn.databinding.CartItemBinding
 import com.example.challenge5fn.items.CartItem
 import com.example.challenge5fn.viewmodel.CartViewModel
@@ -81,9 +80,9 @@ class CartAdapter(private val viewModel: CartViewModel,
 
     inner class CartViewHolder(val binding: CartItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(cartItem: CartItem) {
-            binding.imgCartItem.load(cartItem.imageResourceId){
-                crossfade(true)
-            }
+            Glide.with(itemView.context)
+                .load(cartItem.imageResourceId)
+                .into(binding.imgCartItem)
             binding.txtCartItemName.text = cartItem.foodName
             binding.txtCartItemPrice.text = "Rp. ${cartItem.totalPrice}"
             binding.txtItemQuantity.text = cartItem.quantity.toString()
